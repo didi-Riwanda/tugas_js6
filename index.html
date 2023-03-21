@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 6 JavaScript</title>
+</head>
+<body>
+
+    <h1 align="center">Data Keterangan Gempa Beberapa Waktu Terakhir</h1>
+
+    <table align="center" border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Lokasi Gempa</th>
+                <th>Kekuatan Gempa (Skala Richter)</th>
+                <th>Keterangan</th>
+            </tr>
+        </thead>
+        <tbody>         
+        
+            <script>
+                class Gempa{
+                    constructor(lokasi, skala){
+                        this.lokasi = lokasi;
+                        this.skala = skala;
+                    }
+
+                    dampak(){
+                        if(this.skala <= 2.0){
+                            document.write(`  
+                                <tr>
+                                    <td>${this.lokasi}</td>
+                                    <td>${this.skala} Skala Richter (SR)</td>
+                                    <td>Tidak terasa dan masyarakat tidak mengalami kerugian apapun</td>
+                                </tr> 
+                            `);
+                        }else if(this.skala > 2.0 && this.skala <= 4.0){
+                            document.write(`
+                                <tr>
+                                    <td>${this.lokasi}</td>
+                                    <td>${this.skala} Skala Richter (SR)</td>
+                                    <td>Bangunan retak-retak</td>
+                                </tr> 
+                            `);
+                        }else if(this.skala > 4.0 && this.skala <= 6.0){
+                            document.write(`
+                                <tr>
+                                    <td>${this.lokasi}</td>
+                                    <td>${this.skala} Skala Richter (SR)</td>
+                                    <td>Bangunan roboh</td>
+                                </tr> 
+                            `);
+                        }else {
+                            document.write(`
+                                <tr>
+                                    <td>${this.lokasi}</td>
+                                    <td>${this.skala} Skala Richter (SR)</td>
+                                    <td>Bangunan roboh dan berpotensi tsunami</td>
+                                </tr> 
+                            `);
+                        }
+                    }
+                }
+
+                let g1, g2, g3, g4, g5, g6, g7, g8;
+                g1 = new Gempa('Banyuwangi','1.4'); 
+                g2 = new Gempa('Papua Nugini', '2.0'); 
+                g3 = new Gempa('Amerika Serikat', '9.0'); 
+                g4 = new Gempa('Israel', '7.9'); 
+                g5 = new Gempa('Banyumas', '3.4'); 
+                g6 = new Gempa('Solo', '3.9'); 
+                g7 = new Gempa('Manado', '4.1'); 
+                g8 = new Gempa('Riau', '5.1');
+
+                g1.dampak();
+                g2.dampak();
+                g3.dampak();
+                g4.dampak();
+                g5.dampak();
+                g6.dampak();
+                g7.dampak();
+                g8.dampak();
+            </script>
+
+        </tbody>
+    </table>
+</body>
+</html>
